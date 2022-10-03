@@ -1,12 +1,11 @@
 package com.projectuser.datajpapro.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-//import com.projectuser.datajpapro.organization.Organization;
+import com.projectuser.datajpapro.organization.Organization;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-
+import java.util.*;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @DynamicUpdate
@@ -14,15 +13,16 @@ public @Data class User {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Integer userId;
 
-    private String name;
+    private String userName;
 
     private LocalDate birthDate;
 
-//    @OneToOne
-//    @JsonIgnore
-//    public List<Organization> org;
+    @ManyToOne(fetch = FetchType.EAGER)
+   // @JsonIgnore
+    @JoinColumn(name="organizationName")
+    private Organization organization;
 
 }
 
