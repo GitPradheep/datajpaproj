@@ -1,15 +1,11 @@
 package com.projectuser.datajpapro.service;
-
-import com.projectuser.datajpapro.dao.UserDAO;
 import com.projectuser.datajpapro.exception.UserNotFoundException;
 import com.projectuser.datajpapro.entities.Organization;
 import com.projectuser.datajpapro.repository.OrganizationRepository;
 import com.projectuser.datajpapro.repository.UserRepository;
 import com.projectuser.datajpapro.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +17,6 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     OrganizationRepository organizationRepository;
-
-    @Autowired
-    UserDAO userDAO;
 
     public List<User> retrieveAllUsers(){
         return userRepository.findAll();
@@ -51,10 +44,6 @@ public class UserServiceImpl implements UserService{
 
     public void update(User users){
         userRepository.save(users);
-    }
-
-    public Page<User> getPage( int records, int page) {
-        return userDAO.getPagination(records, page);
     }
 
 }

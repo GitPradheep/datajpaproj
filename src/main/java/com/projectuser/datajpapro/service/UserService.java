@@ -19,7 +19,6 @@ public interface UserService {
 
     public void update(User users);
 
-    public Page<User> getPage(int records, int page);
 
 
 }

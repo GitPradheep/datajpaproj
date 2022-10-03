@@ -1,6 +1,7 @@
 package com.projectuser.datajpapro.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.List;

@@ -5,6 +5,7 @@ import com.projectuser.datajpapro.repository.OrganizationRepository;
 import com.projectuser.datajpapro.repository.UserRepository;
 import com.projectuser.datajpapro.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,9 +28,9 @@ public class OrganizationServiceImpl implements OrganizationService {
         return savedOrg;
     }
 
-    public List<User> retrieveAllUsers(String organizationName) {
+    public List<User> retrieveAllUsers(String organizationName, Pageable pageable) {
         Organization organization = organizationRepository.findByOrganizationName(organizationName);
-        return userRepository.findUserByOrganization(organization);
+        return userRepository.findUserByOrganization(organization,pageable);
     }
 
 
