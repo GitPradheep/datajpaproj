@@ -1,7 +1,5 @@
-package com.projectuser.datajpapro.organization;
+package com.projectuser.datajpapro.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.projectuser.datajpapro.user.User;
 import lombok.Data;
 
 import javax.persistence.*;

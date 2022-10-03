@@ -1,9 +1,8 @@
-package com.projectuser.datajpapro.user;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.projectuser.datajpapro.organization.Organization;
+package com.projectuser.datajpapro.entities;
+import com.projectuser.datajpapro.entities.Organization;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-import java.util.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 

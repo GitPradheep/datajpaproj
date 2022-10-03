@@ -1,61 +1,25 @@
 package com.projectuser.datajpapro.service;
 
-import com.projectuser.datajpapro.dao.UserDAO;
-import com.projectuser.datajpapro.exception.UserNotFoundException;
-import com.projectuser.datajpapro.organization.Organization;
-import com.projectuser.datajpapro.repository.OrganizationRepository;
-import com.projectuser.datajpapro.repository.UserRepository;
-import com.projectuser.datajpapro.user.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.projectuser.datajpapro.entities.User;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+public interface UserService {
 
-    @Autowired
-    OrganizationRepository organizationRepository;
+    public List<User> retrieveAllUsers();
 
-    @Autowired
-    UserDAO userDAO;
+    public User createUser( User user, String organization);
 
-    public List<User> retrieveAllUsers(){
-        return userRepository.findAll();
-    }
+    public void deleteUser( int id);
 
-    public User createUser( User user, String organization) {
-        Organization organization1 = organizationRepository.findByOrganizationName(organization);
-        user.setOrganization(organization1);
-        User savedUser = userRepository.save(user);
-        return savedUser;
-    }
+    public Optional<User> retrieveUser(int id);
 
-    public void deleteUser( int id) {
-        userRepository.deleteById( id);
-    }
+    public void update(User users);
 
-    public Optional<User> retrieveUser(int id) {
-        Optional<User> user = userRepository.findById(id);
+    public Page<User> getPage(int records, int page);
 
-        if(user.isEmpty())
-            throw new UserNotFoundException("id:"+id+" "+"doesnot exists");
-
-        return user;
-    }
-
-    public void update(User users){
-        userRepository.save(users);
-    }
-
-    public Page<User> getPage( int records, int page) {
-        return userDAO.getPagination(records, page);
-    }
 
 }

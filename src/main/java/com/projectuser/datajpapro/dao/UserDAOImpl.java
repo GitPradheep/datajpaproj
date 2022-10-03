@@ -1,7 +1,7 @@
 package com.projectuser.datajpapro.dao;
 
 import com.projectuser.datajpapro.repository.UserRepository;
-import com.projectuser.datajpapro.user.User;
+import com.projectuser.datajpapro.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

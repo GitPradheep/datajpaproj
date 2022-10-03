@@ -1,12 +1,8 @@
 package com.projectuser.datajpapro.controller;
 
-import com.projectuser.datajpapro.organization.Organization;
-import com.projectuser.datajpapro.repository.OrganizationRepository;
 import com.projectuser.datajpapro.service.UserService;
-import com.projectuser.datajpapro.user.User;
+import com.projectuser.datajpapro.entities.User;
 import com.projectuser.datajpapro.dao.UserDAO;
-import com.projectuser.datajpapro.exception.UserNotFoundException;
-import com.projectuser.datajpapro.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
