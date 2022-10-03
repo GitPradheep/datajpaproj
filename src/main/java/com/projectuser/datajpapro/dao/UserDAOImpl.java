@@ -1,5 +1,7 @@
-package com.projectuser.datajpapro.user;
+package com.projectuser.datajpapro.dao;
 
+import com.projectuser.datajpapro.repository.UserRepository;
+import com.projectuser.datajpapro.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
     @Autowired
     private UserRepository repository;
 

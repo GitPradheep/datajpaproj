@@ -1,7 +1,9 @@
-package com.projectuser.datajpapro.organization;
+package com.projectuser.datajpapro.controller;
 
+import com.projectuser.datajpapro.organization.Organization;
+import com.projectuser.datajpapro.repository.OrganizationRepository;
 import com.projectuser.datajpapro.user.User;
-import com.projectuser.datajpapro.user.UserRepository;
+import com.projectuser.datajpapro.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
