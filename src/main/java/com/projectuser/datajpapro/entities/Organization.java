@@ -11,7 +11,6 @@ public @Data class Organization {
     @GeneratedValue
     private Integer orgId;
     private String organizationName;
-
     @OneToMany(mappedBy = "organization")
     @JsonIgnore
     private List<User> users;
