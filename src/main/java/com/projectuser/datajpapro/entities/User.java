@@ -13,11 +13,8 @@ public @Data class User {
     @Id
     @GeneratedValue
     private Integer userId;
-
     private String userName;
-
     private LocalDate birthDate;
-
     @ManyToOne(fetch = FetchType.EAGER)
    // @JsonIgnore
     @JoinColumn(name="organizationName")

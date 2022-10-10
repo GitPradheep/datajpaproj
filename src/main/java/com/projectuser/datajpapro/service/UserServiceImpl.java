@@ -8,40 +8,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class UserServiceImpl implements UserService{
-
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     OrganizationRepository organizationRepository;
-
     public List<User> retrieveAllUsers(){
         return userRepository.findAll();
     }
-
     public User createUser( User user, String organization) {
         Organization organization1 = organizationRepository.findByOrganizationName(organization);
         user.setOrganization(organization1);
         User savedUser = userRepository.save(user);
         return savedUser;
     }
-
     public void deleteUser( int id) {
         userRepository.deleteById( id);
     }
-
     public Optional<User> retrieveUser(int id) {
         Optional<User> user = userRepository.findById(id);
-
         if(user.isEmpty())
             throw new UserNotFoundException("id:"+id+" "+"doesnot exists");
-
         return user;
     }
-
     public void update(User users){
         userRepository.save(users);
     }

@@ -1,5 +1,4 @@
 package com.projectuser.datajpapro.controller;
-
 import com.projectuser.datajpapro.entities.Organization;
 import com.projectuser.datajpapro.service.OrganizationService;
 import com.projectuser.datajpapro.entities.User;
@@ -8,18 +7,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
+@RestController("/organization")
 public class OrganizationController {
-
     @Autowired
     OrganizationService organizationService;
-
-    @GetMapping("/org")
+    @GetMapping("/fetchorg")
     public List<Organization> retrieveAllOrg(){
         return organizationService.retrieveAllOrg();
     }
-
-    @PostMapping("/org")
+    @PostMapping("/postorg")
     public Organization createOrg(@RequestBody Organization organization){
         return organizationService.createOrg(organization);
     }

@@ -1,8 +1,6 @@
 package com.projectuser.datajpapro.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +10,6 @@ public @Data class Organization {
     @Id
     @GeneratedValue
     private Integer orgId;
-
     private String organizationName;
 
     @OneToMany(mappedBy = "organization")
