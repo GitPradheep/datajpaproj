@@ -6,26 +6,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 @RestController
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
-    @GetMapping("/user")
+    @GetMapping("/")
     public List<User> retrieveAllUsers(){
         return userService.retrieveAllUsers();
     }
-    @PostMapping("/user/{organization}")
+    @PostMapping("/{organization}")
     public User createUser(@RequestBody User user,@PathVariable String organization){
         return userService.createUser(user,organization);
     }
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
+
     }
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public Optional<User> retrieveUser(@PathVariable int id) {
+
         return userService.retrieveUser(id);
     }
-    @PutMapping("/user")
+    @PutMapping("/")
     public void update(@RequestBody User users){
         userService.update(users);
     }

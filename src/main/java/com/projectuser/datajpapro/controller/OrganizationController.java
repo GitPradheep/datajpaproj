@@ -7,15 +7,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController("/organization")
+@RestController
+@RequestMapping("/organization")
 public class OrganizationController {
     @Autowired
     OrganizationService organizationService;
-    @GetMapping("/fetchorg")
+    @GetMapping("/")
     public List<Organization> retrieveAllOrg(){
         return organizationService.retrieveAllOrg();
     }
-    @PostMapping("/postorg")
+    @PostMapping("/")
     public Organization createOrg(@RequestBody Organization organization){
         return organizationService.createOrg(organization);
     }

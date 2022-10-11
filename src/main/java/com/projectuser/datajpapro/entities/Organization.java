@@ -3,7 +3,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
 public @Data class Organization {
 
@@ -11,6 +10,7 @@ public @Data class Organization {
     @GeneratedValue
     private Integer orgId;
     private String organizationName;
+
     @OneToMany(mappedBy = "organization")
     @JsonIgnore
     private List<User> users;

@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
         User savedUser = userRepository.save(user);
         return savedUser;
     }
-    public void deleteUser( int id) {
+    public void deleteUser(int id) {
         userRepository.deleteById( id);
     }
     public Optional<User> retrieveUser(int id) {
