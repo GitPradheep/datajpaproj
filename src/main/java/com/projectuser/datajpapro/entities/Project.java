@@ -1,16 +1,19 @@
 package com.projectuser.datajpapro.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public @Data class Project {
+@Data
+public class Project {
 
     @Id
     @GeneratedValue
     private Integer projectId;
     private String projectName;
+
 
     @ManyToMany(mappedBy = "projects",fetch = FetchType.LAZY)
     private Set<User> users;

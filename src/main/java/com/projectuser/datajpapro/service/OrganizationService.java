@@ -8,6 +8,6 @@ public interface OrganizationService {
 
     public List<Organization> retrieveAllOrg();
     public Organization createOrg(Organization organization);
-    public List<User> retrieveAllUsers(String organizationName, Pageable pageable);
+    public List<User> retrieveAllUsers(int organizationId, Pageable pageable);
 
 }

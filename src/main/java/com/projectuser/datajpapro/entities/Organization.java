@@ -4,11 +4,12 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 @Entity
-public @Data class Organization {
+@Data
+public class Organization {
 
     @Id
     @GeneratedValue
-    private Integer orgId;
+    private Integer organizationId;
     private String organizationName;
 
     @OneToMany(mappedBy = "organization")

@@ -17,11 +17,8 @@ public class UserServiceImpl implements UserService{
     public List<User> retrieveAllUsers(){
         return userRepository.findAll();
     }
-    public User createUser( User user, String organization) {
-        Organization organization1 = organizationRepository.findByOrganizationName(organization);
-        user.setOrganization(organization1);
-        User savedUser = userRepository.save(user);
-        return savedUser;
+    public User createUser( User user) {
+        return userRepository.save(user);
     }
     public void deleteUser(int id) {
         userRepository.deleteById( id);

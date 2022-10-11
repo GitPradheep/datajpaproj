@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/organization")
+@RequestMapping("/organizations")
 public class OrganizationController {
     @Autowired
     OrganizationService organizationService;
@@ -20,8 +20,8 @@ public class OrganizationController {
     public Organization createOrg(@RequestBody Organization organization){
         return organizationService.createOrg(organization);
     }
-    @GetMapping("/usersbyorg/{organizationName}")
-    public List<User> retrieveAllUsers(@PathVariable String organizationName, Pageable pageable) {
-        return organizationService.retrieveAllUsers(organizationName,pageable);
+    @GetMapping("/{organizationId}/users")
+    public List<User> retrieveAllUsers(@PathVariable int organizationId, Pageable pageable) {
+        return organizationService.retrieveAllUsers(organizationId,pageable);
     }
 }
