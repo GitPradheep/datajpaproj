@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
     public User createUser(User user) {
-        User existingUser = (User) userRepository.findByEmailId(user.getEmailId()).orElse(null);
+        User existingUser = userRepository.findByEmailId(user.getEmailId()).orElse(null);
         if (existingUser==null){
             return userRepository.save(user);
         }
