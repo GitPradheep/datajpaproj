@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@DynamicUpdate
 @Data
 public class User {
 
