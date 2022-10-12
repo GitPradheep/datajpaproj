@@ -5,8 +5,11 @@ import com.projectuser.datajpapro.repository.OrganizationRepository;
 import com.projectuser.datajpapro.repository.UserRepository;
 import com.projectuser.datajpapro.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
