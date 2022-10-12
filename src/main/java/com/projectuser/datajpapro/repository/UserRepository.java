@@ -10,4 +10,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findUserByOrganization(Optional<Organization> organization, Pageable pageable);
 
 
+    Optional<Object> findByEmailId(String emailId);
 }

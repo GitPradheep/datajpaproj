@@ -29,7 +29,6 @@ public class OrganizationServiceImpl implements OrganizationService {
             throw new UserNotFoundException("id:"+organizationId+" "+"doesnot exists");
         return userRepository.findUserByOrganization(organization,pageable);
 
-
     }
 
 }

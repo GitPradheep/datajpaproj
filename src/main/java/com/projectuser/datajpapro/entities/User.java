@@ -1,5 +1,6 @@
 package com.projectuser.datajpapro.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
@@ -15,6 +16,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     private String userName;
+
+    @Column(unique = true)
+    private String emailId;
+
     private LocalDate birthDate;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -27,7 +32,8 @@ public class User {
     private Organization organization;
 
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinTable(name = "UserProject",joinColumns = @JoinColumn(name = "user_id"),
+    @JoinTable(name = "userProject",joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
+    @JsonIgnore
     private Set<Project> projects;
 }

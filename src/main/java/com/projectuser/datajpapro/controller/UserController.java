@@ -24,7 +24,7 @@ public class UserController {
 
     }
     @GetMapping("/{id}")
-    public Optional<User> retrieveUser(@PathVariable int id) {
+    public User retrieveUser(@PathVariable int id) {
 
         return userService.retrieveUser(id);
     }
